@@ -5,7 +5,7 @@ const responseGenai = async(message)=>{
      const obptions = {
     method: "POST",
     headers: {
-      "x-goog-api-key": `${GEMINI_API_KEY}`,
+      "x-goog-api-key": `${process.env.GEMINI_API_KEY}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
