@@ -1,13 +1,13 @@
 import "./App.css";
 import Sidebar from "./Sidebar";
 import ChatWindow from "./ChatWindow";
-import MyContext from "./MyContext";
+import {MyContext} from "./MyContext";
 
 function App() {
   const provideValue = {};
   return (
     <>
-      <div className="main">
+      <div className="app">
         <MyContext.Provider value={provideValue}>
           <Sidebar></Sidebar>
           <ChatWindow></ChatWindow>
