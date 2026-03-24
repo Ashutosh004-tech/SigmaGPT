@@ -17,6 +17,7 @@ function Sidebar() {
           <li>History 1</li>
           <li>History 1</li>
           <li>History 1</li>
+          <li>History 1</li>
         </ul>
 
         {/* Policy */}

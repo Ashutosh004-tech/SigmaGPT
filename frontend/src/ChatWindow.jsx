@@ -3,7 +3,9 @@ function ChatWindow(){
     return (
         <>
             <div className='chatWindow'>
-                <p>Hello ChatWindow</p>
+                <div>
+                    
+                </div>
             </div>
         </>
     )
