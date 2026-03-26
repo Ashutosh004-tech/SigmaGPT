@@ -4,8 +4,10 @@ function ChatWindow(){
     return (
         <>
             <div className='chatWindow'>
-                <div className='navbar'>
-                    
+                <div className='navbar'> 
+                    <h2>SigmaGpt</h2>
+                    <button>Get Plus</button>
+                    <a></a>
                 </div>
                 <Chat></Chat>
                 <div className='chatInput'></div>
