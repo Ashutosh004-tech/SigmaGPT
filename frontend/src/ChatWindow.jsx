@@ -2,9 +2,9 @@ import "./ChatWindow.css";
 import Chat from "./Chat";
 import { MyContext } from "./MyContext";
 import { useContext, useState } from "react";
-import {RingLoader} from 'react-spinners';
+import { RingLoader } from "react-spinners";
 function ChatWindow() {
-  const { prompt, setPrompt, reply, setreply, currThreadId } =
+  const { prompt, setPrompt, reply, setReply, currThreadId } =
     useContext(MyContext);
   const [loder, setLoder] = useState(false);
 
@@ -32,7 +32,6 @@ function ChatWindow() {
     setLoder(false);
   };
 
-  
   return (
     <>
       <div className="chatWindow">
@@ -48,10 +47,12 @@ function ChatWindow() {
         </div>
 
         <Chat></Chat>
-                <RingLoader color="#fff" loading={loder}></RingLoader>
+
+
+        <RingLoader color="#fff" loading={loder}></RingLoader>
+
 
         <div className="chatInputBox">
-          <p>How can i help you ?</p>
           <div className="chatInput">
             <input
               placeholder="Ask Anyhting"
@@ -64,13 +65,13 @@ function ChatWindow() {
               </span>
             </div>
           </div>
-        </div>
 
-        <div className="info">
-          <p>
-            SigmaGPT can make mistakes. Check important info. See Cookie
-            Preferences.
-          </p>
+          <div className="info">
+            <span>
+              SigmaGPT can make mistakes. Check important info. See Cookie
+              Preferences.
+            </span>
+          </div>
         </div>
       </div>
     </>

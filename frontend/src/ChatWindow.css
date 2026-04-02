@@ -45,9 +45,10 @@
     justify-content: center;
     background-color: #303030;
     padding: 1rem;
-    width: 50%;
+    width: 600px;
     border-radius: 30px;
     height: 1.7rem;
+    margin-bottom: 1rem;
 
 }
 .chatInput input{
@@ -68,5 +69,12 @@
 }
 .chatInput span i{
     color: #404040;
+}
+.info{
+    margin-bottom: 0.6rem;
+}
+.info span{
+    color:#acacac;
+    font-size: 0.6rem;
 }
 

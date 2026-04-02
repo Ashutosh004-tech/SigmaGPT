@@ -8,12 +8,17 @@ import {v1 as uuidv1} from "uuid";
 
 function App() {
   const [prompt, setPrompt] = useState("");
-  const [reply, setreply]= useState(null);
+  const [reply, setReply]= useState(null);
   const [currThreadId, setThreadId] = useState(uuidv1());
+  const [newChat, setNewChat] = useState(true);
+   const [preChat, sePreChat] = useState([]);
+
+
   const provideValue = {
     prompt, setPrompt,
-    reply, setreply, 
-    currThreadId, setThreadId
+    reply, setReply, 
+    currThreadId, setThreadId,
+    newChat, setNewChat
   };
   return (
     <>
