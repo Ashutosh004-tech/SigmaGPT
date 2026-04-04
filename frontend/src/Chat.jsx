@@ -3,16 +3,22 @@ import { MyContext } from "./MyContext";
 import { useContext } from "react";
 
 function Chat() {
-const {newChat, setNewChat} = useContext(MyContext);
+  const { newChat, setNewChat, preChat } = useContext(MyContext);
   return (
     <>
-    {newChat && <h1>How Can i help you ?</h1>}
-
-    <div className="chats">
-      <div className="userchats"></div>
-      <div className="modelchats"></div>
-    </div>
-
+      {newChat && <h1>How Can i help you ?</h1>}
+      {console.log(preChat)}
+      <div className="chats">
+        {preChat?.map((chat, idx) => {
+          <div className={chat.role === "user" ? "userchats" : "modelchats"} key={idx}>
+            {chat.role === "user" ? (
+              <p className="user">{chat.content}</p>
+            ) : (
+              <p className="model">{chat.content}</p>
+            )}
+          </div>;
+        })}
+      </div>
     </>
   );
 }

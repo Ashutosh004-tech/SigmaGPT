@@ -1,0 +1,23 @@
+.chats{
+    width: 50%;
+    overflow-y: scroll;
+}
+.useruserchats{
+     display: flex;
+     justify-content: flex-end;
+}
+.user{
+    background-color: #323232;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 15rem;
+    max-width: 500px;
+    width: fit-content;
+}
+.modelchats{
+    text-align: left;
+    font-size: 0.9rem;
+}
+.model{
+
+}

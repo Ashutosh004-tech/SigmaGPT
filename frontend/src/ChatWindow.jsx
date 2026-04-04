@@ -1,10 +1,10 @@
 import "./ChatWindow.css";
 import Chat from "./Chat";
 import { MyContext } from "./MyContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { RingLoader } from "react-spinners";
 function ChatWindow() {
-  const { prompt, setPrompt, reply, setReply, currThreadId } =
+  const { prompt, setPrompt, reply, setReply, currThreadId, preChat, setPreChat } =
     useContext(MyContext);
   const [loder, setLoder] = useState(false);
 
@@ -31,6 +31,22 @@ function ChatWindow() {
     }
     setLoder(false);
   };
+
+// Append new chat
+useEffect(()=>{
+  if(prompt && reply){
+    setPreChat(preChat=>{
+      [...preChat,{
+        role:"user",
+        content:prompt
+      },{
+        role:"model",
+        content:reply
+      }]
+    })
+  }
+  setPrompt("");
+}, [reply])
 
   return (
     <>
