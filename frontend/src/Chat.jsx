@@ -7,7 +7,6 @@ function Chat() {
   return (
     <>
       {newChat && <h1>How Can i help you ?</h1>}
-      {console.log(preChat)}
       <div className="chats">
         {preChat?.map((chat, idx) => {
           <div className={chat.role === "user" ? "userchats" : "modelchats"} key={idx}>
@@ -16,7 +15,7 @@ function Chat() {
             ) : (
               <p className="model">{chat.content}</p>
             )}
-          </div>;
+          </div>
         })}
       </div>
     </>
