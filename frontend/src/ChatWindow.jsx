@@ -13,16 +13,17 @@ function ChatWindow() {
     currThreadId,
     preChat,
     setPreChat,
+    setNewChat,
   } = useContext(MyContext);
 
   const [loader, setLoader] = useState(false);
 
-  // Get response from backend
   const getReply = async () => {
-    if (!prompt.trim()) return;
+    if (!prompt.trim() || loader) return;
 
-    const userMessage = prompt; // store before clearing
+    const userMessage = prompt;
     setLoader(true);
+    setNewChat(false);
 
     try {
       const response = await fetch("http://localhost:8080/api/chat", {
@@ -36,27 +37,34 @@ function ChatWindow() {
         }),
       });
 
-      const res = await response.json();
+      if (!response.ok) {
+        throw new Error("API failed");
+      }
 
-      // Update chat directly (BEST WAY)
+      const res = await response.json();
+      console.log("API RESPONSE:", res);
+
+      // ✅ SAFE reply handling
+      const botReply =
+        res.reply || res.model || res.response || "⚠️ No response from server";
+
       setPreChat((prev) => [
         ...prev,
         { role: "user", content: userMessage },
-        { role: "model", content: res.reply },
+        { role: "model", content: botReply },
       ]);
 
-      setReply(res.reply);
+      setReply(botReply);
       setPrompt("");
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoader(false);
     }
-
-    setLoader(false);
   };
 
-  // Handle Enter key
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !loader) {
       getReply();
     }
   };
@@ -88,10 +96,11 @@ function ChatWindow() {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             onKeyDown={handleKeyDown}
+            disabled={loader}
           />
 
           <div id="submit">
-            <span onClick={getReply}>
+            <span onClick={!loader ? getReply : null}>
               <i className="fa-solid fa-arrow-up"></i>
             </span>
           </div>

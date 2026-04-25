@@ -1,9 +1,15 @@
 import "./Chat.css";
 import { MyContext } from "./MyContext";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 function Chat() {
-  const { newChat, setNewChat, preChat } = useContext(MyContext);
+  const { newChat, preChat } = useContext(MyContext);
+
+  const chatEndRef = useRef(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [preChat]);
 
   return (
     <>
@@ -13,7 +19,7 @@ function Chat() {
         {preChat?.map((chat, idx) => (
           <div
             className={chat.role === "user" ? "userchats" : "modelchats"}
-            key={idx}
+            key={`${chat.role}-${idx}`}
           >
             {chat.role === "user" ? (
               <p className="user">{chat.content}</p>
@@ -22,6 +28,7 @@ function Chat() {
             )}
           </div>
         ))}
+        <div ref={chatEndRef}></div>
       </div>
     </>
   );
