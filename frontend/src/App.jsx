@@ -11,6 +11,7 @@ function App() {
   const [currThreadId, setThreadId] = useState(uuidv1());
   const [newChat, setNewChat] = useState(true);
   const [preChat, setPreChat] = useState([]);
+  const [title, setTitle] = useState([]);
   
 
   const provideValue = {
@@ -24,6 +25,8 @@ function App() {
     setNewChat,
     preChat,
     setPreChat,
+    title, 
+    setTitle
   };
 
   return (

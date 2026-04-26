@@ -36,17 +36,18 @@ button:hover{
     padding: 10px;
     height: 100%;
 }
-.threads li{
+.threadList{
     list-style-type: none;
     cursor: pointer;
-    margin-bottom: 0.2rem;
-    padding: 2px 5px;
-    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    padding: 4px 9px;
+    font-size: 1rem;
+    font-weight: bold;
     border: solid transparent;
     position: relative;
 }
 
-.threads li:hover{
+.threadList:hover{
     background-color: rgb(180,180,180 , 0.04);
 }
 
