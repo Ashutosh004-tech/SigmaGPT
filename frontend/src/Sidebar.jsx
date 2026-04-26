@@ -1,5 +1,11 @@
 import "./Sidebar.css";
+import {useEffect} from "react";
+import axios from "axios";
 function Sidebar() {
+  
+  useEffect(()=>{
+    
+  })
   return (
     <>
       <div className="sideBar">
@@ -13,6 +19,7 @@ function Sidebar() {
         </button>
         {/* History */}
         <ul className="threads">
+
           <li>History 1</li>
           <li>History 1</li>
           <li>History 1</li>

@@ -11,6 +11,7 @@ function App() {
   const [currThreadId, setThreadId] = useState(uuidv1());
   const [newChat, setNewChat] = useState(true);
   const [preChat, setPreChat] = useState([]);
+  
 
   const provideValue = {
     prompt,
